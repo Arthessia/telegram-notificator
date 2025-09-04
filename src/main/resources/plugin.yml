@@ -1,0 +1,15 @@
+main: arthessia.notificator.Plugin
+name: notificator
+authors: [Arthessia]
+version: 1.0.0.0
+api-version: "1.21"
+
+commands:
+    notificator:
+        description: "Reload telegram notificator plugin"
+        usage: "/notificator <reload>"
+        permission: arthessia.notificator.reload
+    send:
+        description: "Reload telegram notificator plugin"
+        usage: "/notificator <send> message"
+        permission: arthessia.notificator.send

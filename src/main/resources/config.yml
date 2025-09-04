@@ -1,0 +1,29 @@
+notif:
+  death:
+    enabled: true
+  bot:
+    token: tokendummy
+    chat: chatdummy
+  delay: 15
+  silent:
+    enabled: true
+  message:
+    death: ☠️ `%msg%`
+    join: 💎⛏️ `%msg% vient de se connecter.`
+    quit: 🌒 `%msg% s'est déconnecté.`
+    success: 🎯 `%msg% a obtenu un succès %success%! GG!`
+    shutdown: ♻️🔋 `extinction du serveur.`
+  join:
+    enabled: true
+  quit:
+    enabled: true
+  shutdown:
+    enabled: true
+  success:
+    enabled: true
+    categories: 
+      - adventure
+      - husbandry
+      - story
+      - nether
+      - end
