@@ -4,18 +4,17 @@ notif:
     timer:
       enabled: true
   bot:
-    token: tokendummy
-    chat: chatdummy
-  delay: 15
+    token: dummytoken
+    chat: dummychat
   silent:
     enabled: true
+  delay: 15
   message:
     death: ☠️ `%msg%`
     join: 💎⛏️ `%msg% vient de se connecter.`
     quit: 🌒 `%msg% s'est déconnecté.`
-    success: 🎯 `%msg% a obtenu un succès %success%! GG!`
+    success: 🏆 `%msg% a obtenu un succès %success%! GG!`
     shutdown: ♻️🔋 `extinction du serveur.`
-    deathTime: ⏱️ `a vécu %msg%`
     rage:
     - 🖥️👉🪟 `Je crois que %msg% vient de jeter son PC par la fenêtre, j'ai perdu la connexion.`
     - 🍼👶 `%msg% a encore ragequit... quelqu’un lui passe une tétine ?`
@@ -39,20 +38,23 @@ notif:
     - 🎮🕹️👾 `%msg% croit que couper le jeu est une compétence eSport.`
     - 🚫🏅 `%msg% gagne la médaille d’or du ragequit le plus pathétique.`
     - 🍺🍹🍷 `%msg%, et si t'allais boire un coup pour oublier ce qui vient de se passer ? Promis je dis rien aux autres.`
+    deathTime: ⏱️ `a vécu %msg%`
   join:
     enabled: true
   quit:
+    enabled: true
+  success:
+    enabled: true
+    categories:
+    - adventure
+    - husbandry
+    - story
+    - nether
+    - end
+  free:
     enabled: true
   rage:
     enabled: true
     delay: 30
   shutdown:
     enabled: true
-  success:
-    enabled: true
-    categories: 
-      - adventure
-      - husbandry
-      - story
-      - nether
-      - end
