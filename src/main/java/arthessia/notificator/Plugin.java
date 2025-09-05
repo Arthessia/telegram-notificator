@@ -33,6 +33,9 @@ public class Plugin extends JavaPlugin implements Listener {
         if (!this.getConfig().contains("notif.death.enabled")) {
             this.getConfig().set("notif.death.enabled", true);
         }
+        if (!this.getConfig().contains("notif.death.timer.enabled")) {
+            this.getConfig().set("notif.death.timer.enabled", true);
+        }
         if (!this.getConfig().contains("notif.free.enabled")) {
             this.getConfig().set("notif.free.enabled", true);
         }
@@ -41,6 +44,9 @@ public class Plugin extends JavaPlugin implements Listener {
         }
         if (!this.getConfig().contains("notif.quit.enabled")) {
             this.getConfig().set("notif.quit.enabled", true);
+        }
+        if (!this.getConfig().contains("notif.rage.enabled")) {
+            this.getConfig().set("notif.rage.enabled", true);
         }
         if (!this.getConfig().contains("notif.shutdown.enabled")) {
             this.getConfig().set("notif.shutdown.enabled", true);
@@ -57,8 +63,20 @@ public class Plugin extends JavaPlugin implements Listener {
             init.add("end");
             this.getConfig().set("notif.success.categories", init);
         }
+        if (!this.getConfig().contains("notif.message.rage")) {
+            List<String> init = new ArrayList<>();
+            init.add("🖥️👉🪟 `Je crois que %msg% vient de jeter son PC par la fenêtre, j'ai perdu la connexion.`");
+            init.add("🍼👶 `%msg% a encore ragequit... quelqu’un lui passe une tétine ?`");
+            init.add("🪦💀 `%msg% est mort… encore. Mais cette fois il a ragequit avant le respawn.`");
+            init.add("🦥💤 `%msg% a ragequit plus vite qu’il ne joue. Impressionnant.`");
+            init.add("🏆🥈 `%msg% n’a pas perdu… il a juste ragequit en “grand champion” de la deuxième place.`");
+            this.getConfig().set("notif.message.rage", init);
+        }
         if (!this.getConfig().contains("notif.message.death")) {
             this.getConfig().set("notif.message.death", "☠️ `%msg%`");
+        }
+        if (!this.getConfig().contains("notif.message.deathTime")) {
+            this.getConfig().set("notif.message.deathTime", "`(⏱️ a vécu %msg%)`");
         }
         if (!this.getConfig().contains("notif.message.join")) {
             this.getConfig().set("notif.message.join", "💎⛏️ `%msg% vient de se connecter.`");
@@ -83,6 +101,9 @@ public class Plugin extends JavaPlugin implements Listener {
         }
         if (!this.getConfig().contains("notif.delay")) {
             this.getConfig().set("notif.delay", 10);
+        }
+        if (!this.getConfig().contains("notif.rage.delay")) {
+            this.getConfig().set("notif.rage.delay", 30);
         }
         this.saveConfig();
 
