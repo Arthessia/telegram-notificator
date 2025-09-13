@@ -14,10 +14,14 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import arthessia.notificator.commands.CommonCommands.ReloadCommand;
 import arthessia.notificator.commands.FreeMessage.FreeMessageSender;
 import arthessia.notificator.telegram.Telegram;
+import arthessia.notificator.telegram.TelegramBridgeBot;
 
 public class Plugin extends JavaPlugin implements Listener {
     public static final Random RANDOM = new Random();
@@ -30,11 +34,17 @@ public class Plugin extends JavaPlugin implements Listener {
         getLogger().info("Config loaded... ");
 
         getLogger().info("Setup of new default values...");
+        if (!this.getConfig().contains("communication.enabled")) {
+            this.getConfig().set("communication.enabled", true);
+        }
         if (!this.getConfig().contains("notif.death.enabled")) {
             this.getConfig().set("notif.death.enabled", true);
         }
         if (!this.getConfig().contains("notif.death.timer.enabled")) {
             this.getConfig().set("notif.death.timer.enabled", true);
+        }
+        if (!this.getConfig().contains("notif.chat.enabled")) {
+            this.getConfig().set("notif.chat.enabled", true);
         }
         if (!this.getConfig().contains("notif.free.enabled")) {
             this.getConfig().set("notif.free.enabled", true);
@@ -72,6 +82,9 @@ public class Plugin extends JavaPlugin implements Listener {
             init.add("🏆🥈 `%msg% thought they were a pro, but disconnecting was faster than their skills.`");
             this.getConfig().set("notif.message.rage", init);
         }
+        if (!this.getConfig().contains("notif.message.chat")) {
+            this.getConfig().set("notif.message.chat", "💬 `%msg%`> %message%");
+        }
         if (!this.getConfig().contains("notif.message.death")) {
             this.getConfig().set("notif.message.death", "☠️ `%msg%`");
         }
@@ -88,13 +101,16 @@ public class Plugin extends JavaPlugin implements Listener {
             this.getConfig().set("notif.message.shutdown", "♻️🔋 `Server is shutting down.`");
         }
         if (!this.getConfig().contains("notif.message.success")) {
-            this.getConfig().set("notif.message.success", "🏆 `%msg% just earned an achievement: %success%! GG!`");
+            this.getConfig().set("notif.message.success", "🏆 `%msg% just earned the achievement %success%! GG!`");
         }
-        if (!this.getConfig().contains("notif.bot.token")) {
-            this.getConfig().set("notif.bot.token", "dummytoken");
+        if (!this.getConfig().contains("bot.token")) {
+            this.getConfig().set("bot.token", "dummytoken");
         }
-        if (!this.getConfig().contains("notif.bot.chat")) {
-            this.getConfig().set("notif.bot.chat", "dummyid");
+        if (!this.getConfig().contains("bot.chat")) {
+            this.getConfig().set("bot.chat", "dummyid");
+        }
+        if (!this.getConfig().contains("bot.username")) {
+            this.getConfig().set("bot.username", "username");
         }
         if (!this.getConfig().contains("notif.silent.enabled")) {
             this.getConfig().set("notif.silent.enabled", true);
@@ -118,6 +134,15 @@ public class Plugin extends JavaPlugin implements Listener {
         // load plugins
         Telegram telegram = new Telegram(this);
         Bukkit.getServer().getPluginManager().registerEvents(telegram, this);
+        String token = getConfig().getString("bot.token");
+        long chatId = getConfig().getLong("bot.chatid", 0L);
+
+        try {
+            TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
+            botsApi.registerBot(new TelegramBridgeBot(this, chatId, token));
+        } catch (TelegramApiException e) {
+            getLogger().severe("Erreur lors du lancement du bot Telegram : " + e.getMessage());
+        }
 
         getLogger().info("Notificator loaded...");
     }
@@ -135,8 +160,8 @@ public class Plugin extends JavaPlugin implements Listener {
     @Override
     public void onDisable() {
         if (getConfig().getBoolean("notif.shutdown.enabled")) {
-            String bot = getConfig().getString("notif.bot.token");
-            String chatId = getConfig().getString("notif.bot.chat");
+            String bot = getConfig().getString("bot.token");
+            String chatId = getConfig().getString("bot.chat");
             boolean isSilent = getConfig().getBoolean("notif.silent.enabled");
             String customMessage = getConfig().getString("notif.message.shutdown");
 

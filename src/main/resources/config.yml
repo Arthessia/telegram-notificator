@@ -1,18 +1,22 @@
+bot:
+  token: dummytoken
+  username: botusername
+  chat: dummychat
+communication:
+  enabled: true
 notif:
   death:
     enabled: true
     timer:
       enabled: true
-  bot:
-    token: dummytoken
-    chat: dummychat
   silent:
     enabled: true
   message:
     death: ☠️ `%msg%`
     join: 💎⛏️ `%msg% just joined the game.`
     quit: 🌒 `%msg% has left the game.`
-    success: 🏆 `%msg% just earned an achievement: %success%! GG!`
+    success: 🏆 `%msg% just earned the achievement %success%! GG!`
+    chat: 💬 `%msg%:` %message%
     shutdown: ♻️🔋 `Server is shutting down.`
     rage:
       - 🖥️👉🪟 `I think %msg% just threw their PC out the window, I lost the connection.`

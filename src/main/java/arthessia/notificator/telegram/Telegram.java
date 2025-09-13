@@ -11,6 +11,7 @@ import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerAdvancementDoneEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -59,8 +60,8 @@ public class Telegram implements Listener {
             String finalDeathTimeMessage = customDeathTimeMessage.replace("%msg%", lifetimeFormatted);
             finalMessage += " " + finalDeathTimeMessage;
         }
-        String bot = plugin.getConfig().getString("notif.bot.token");
-        String chatId = plugin.getConfig().getString("notif.bot.chat");
+        String bot = plugin.getConfig().getString("bot.token");
+        String chatId = plugin.getConfig().getString("bot.chat");
         boolean isSilent = plugin.getConfig().getBoolean("notif.silent.enabled");
         DEATH_TIME.put(player, deathTime);
         LIFECYCLE.put(player, deathTime);
@@ -82,8 +83,8 @@ public class Telegram implements Listener {
             plugin.getLogger().info(event.getPlayer().getName() + " just arrived, sending update on Telegram.");
             String customMessage = plugin.getConfig().getString("notif.message.join");
             String finalMessage = customMessage.replace("%msg%", event.getPlayer().getName());
-            String bot = plugin.getConfig().getString("notif.bot.token");
-            String chatId = plugin.getConfig().getString("notif.bot.chat");
+            String bot = plugin.getConfig().getString("bot.token");
+            String chatId = plugin.getConfig().getString("bot.chat");
             boolean isSilent = plugin.getConfig().getBoolean("notif.silent.enabled");
             plugin.sendMessage(bot, chatId, finalMessage, isSilent);
         }
@@ -99,8 +100,8 @@ public class Telegram implements Listener {
         String player = event.getPlayer().getName();
         LocalDateTime delay = AVOID_SPAM.getOrDefault("quit-" + player,
                 LocalDateTime.now().minusSeconds(1));
-        String bot = plugin.getConfig().getString("notif.bot.token");
-        String chatId = plugin.getConfig().getString("notif.bot.chat");
+        String bot = plugin.getConfig().getString("bot.token");
+        String chatId = plugin.getConfig().getString("bot.chat");
         boolean isSilent = plugin.getConfig().getBoolean("notif.silent.enabled");
 
         boolean rage = false;
@@ -159,10 +160,25 @@ public class Telegram implements Listener {
             String finalMessage = customMessage
                     .replace("%msg%", event.getPlayer().getName())
                     .replace("%success%", toDisplay);
-            String bot = plugin.getConfig().getString("notif.bot.token");
-            String chatId = plugin.getConfig().getString("notif.bot.chat");
+            String bot = plugin.getConfig().getString("bot.token");
+            String chatId = plugin.getConfig().getString("bot.chat");
             boolean isSilent = plugin.getConfig().getBoolean("notif.silent.enabled");
             plugin.sendMessage(bot, chatId, finalMessage, isSilent);
         }
+    }
+
+    @EventHandler
+    public void onMessage(AsyncPlayerChatEvent event) {
+        if (!plugin.getConfig().getBoolean("notif.chat.enabled")) {
+            return;
+        }
+        String bot = plugin.getConfig().getString("bot.token");
+        String chatId = plugin.getConfig().getString("bot.chat");
+        boolean isSilent = plugin.getConfig().getBoolean("notif.silent.enabled");
+        String customMessage = plugin.getConfig().getString("notif.message.chat");
+        String finalMessage = customMessage
+                .replace("%msg%", event.getPlayer().getName())
+                .replace("%message%", event.getMessage());
+        plugin.sendMessage(bot, chatId, finalMessage, isSilent);
     }
 }

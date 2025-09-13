@@ -7,3 +7,4 @@
 .settings/
 *.prefs
 *.bat
+dependency-reduced-pom.xml

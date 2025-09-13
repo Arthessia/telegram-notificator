@@ -18,6 +18,7 @@
     <maven.compiler.target>22</maven.compiler.target>
     <lombok.version>1.18.38</lombok.version>
     <spigot.version>1.21.8-R0.1-SNAPSHOT</spigot.version>
+    <telegram.lib.version>6.9.7.1</telegram.lib.version>
   </properties>
   <repositories>
     <repository>
@@ -37,6 +38,11 @@
       <artifactId>spigot-api</artifactId>
       <version>${spigot.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.telegram</groupId>
+      <artifactId>telegrambots</artifactId>
+      <version>${telegram.lib.version}</version>
     </dependency>
   </dependencies>
   <build>
@@ -64,6 +70,28 @@
             <goals>
               <goal>run</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>3.5.3</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <minimizeJar>true</minimizeJar>
+              <relocations>
+                <relocation>
+                  <pattern>org.telegram</pattern>
+                  <shadedPattern>arthessia.libs.telegram</shadedPattern>
+                </relocation>
+              </relocations>
+            </configuration>
           </execution>
         </executions>
       </plugin>

@@ -25,8 +25,8 @@ public class FreeMessage {
                 return false;
             }
 
-            String bot = plugin.getConfig().getString("notif.bot.token");
-            String chatId = plugin.getConfig().getString("notif.bot.chat");
+            String bot = plugin.getConfig().getString("bot.token");
+            String chatId = plugin.getConfig().getString("bot.chat");
             boolean isSilent = plugin.getConfig().getBoolean("notif.silent.enabled");
             plugin.sendMessage(bot, chatId, String.join(" ", arg3), isSilent);
 
