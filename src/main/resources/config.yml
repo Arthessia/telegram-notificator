@@ -5,6 +5,8 @@ bot:
 communication:
   enabled: true
 notif:
+chat:
+  enabled: true
   death:
     enabled: true
     timer:
