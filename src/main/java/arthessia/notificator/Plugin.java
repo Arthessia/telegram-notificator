@@ -99,8 +99,11 @@ public class Plugin extends JavaPlugin implements Listener {
         if (!this.getConfig().contains("notif.silent.enabled")) {
             this.getConfig().set("notif.silent.enabled", true);
         }
-        if (!this.getConfig().contains("notif.delay")) {
-            this.getConfig().set("notif.delay", 10);
+        if (!this.getConfig().contains("notif.join.delay")) {
+            this.getConfig().set("notif.join.delay", 15);
+        }
+        if (!this.getConfig().contains("notif.quit.delay")) {
+            this.getConfig().set("notif.quit.delay", 15);
         }
         if (!this.getConfig().contains("notif.rage.delay")) {
             this.getConfig().set("notif.rage.delay", 30);

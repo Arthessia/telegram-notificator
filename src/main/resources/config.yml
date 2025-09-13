@@ -8,7 +8,6 @@ notif:
     chat: dummychat
   silent:
     enabled: true
-  delay: 15
   message:
     death: ☠️ `%msg%`
     join: 💎⛏️ `%msg% just joined the game.`
@@ -40,8 +39,10 @@ notif:
       - 🍺🍹🍷 `%msg%, maybe grab a drink to forget what just happened? I won’t tell the others.`
     deathTime: ⏱️ `survived for %msg%`
   join:
+    delay: 15
     enabled: true
   quit:
+    delay: 15
     enabled: true
   success:
     enabled: true

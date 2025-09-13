@@ -88,7 +88,7 @@ public class Telegram implements Listener {
             plugin.sendMessage(bot, chatId, finalMessage, isSilent);
         }
         AVOID_SPAM.put("join-" + event.getPlayer().getName(),
-                LocalDateTime.now().plusMinutes(plugin.getConfig().getLong("notif.delay")));
+                LocalDateTime.now().plusMinutes(plugin.getConfig().getLong("notif.join.delay")));
     }
 
     @EventHandler
@@ -127,7 +127,7 @@ public class Telegram implements Listener {
         }
 
         AVOID_SPAM.put("quit-" + player,
-                LocalDateTime.now().plusMinutes(plugin.getConfig().getLong("notif.delay")));
+                LocalDateTime.now().plusMinutes(plugin.getConfig().getLong("notif.quit.delay")));
     }
 
     @EventHandler
