@@ -1,25 +1,50 @@
-# The FeatureBox
+# Telegram Notificator
 
-I developped this plugin for my server, and wanted to share with the community if it can be useful to someone :P
+Bring your Minecraft server to life with **Telegram Notificator** – the ultimate bridge between your in-game events and your Telegram community!
 
-## What does it bring?
+## 🚀 Features
 
-4 things!
-1) First of all, we wanted to have the possibility to use Riptide even when weather is clear. So I did a look-like Riptide enchant. To enable it, you need to add a Riptide enchant on your Trident and rename it "Poseidon".
-2) Unused Killer Rabbit mob. I saw (inside the Java edition) that a Killer Rabbit was available as entity in the game. I added a natural generation for them.
-3) Unused Illusioner mob. I saw (inside the Java edition) that an Illusioner was available as entity in the game. I added a natural generation for them.
-4) Unused zombie horse mob. I saw (inside the Java edition) that a zombie horse was available as entity in the game. I added a natural generation for them.
+- **Real-Time Telegram Notifications:** Instantly send messages to your Telegram chat for player deaths, joins, quits, achievements, and more.
+- **Customizable Messages:** Personalize every notification with fun, themed messages and placeholders.
+- **Ragequit Detector:** Celebrate (or mock!) dramatic ragequits with a random selection of witty messages.
+- **Silent Mode:** Choose whether notifications should ping your Telegram group or stay discreet.
+- **Command Support:** Reload the plugin or send free-form messages to Telegram directly from Minecraft.
+- **Flexible Configuration:** Easily tweak every aspect via the included `config.yml`.
 
-## How to?
+## 📦 Installation
 
-For the installation, nothing special excepted you need to add the .jar file into your plugins folder.
+1. Download the plugin `.jar` and drop it into your server’s `plugins` folder.
+2. Start your server to generate the default configuration.
+3. Edit `plugins/notificator/config.yml` with your Telegram bot token, chat ID, and preferences.
+4. Reload or restart your server.
 
-The plugin bring (of course) a default configuration, but you are free to update it (using the file or ingame).
+## 🛠️ Configuration
 
-### Commands
+All options are managed in [`src/main/resources/config.yml`](src/main/resources/config.yml):
 
-* `/featurebox reload` Permits you to reload the configuration if you changed the file when the server is running.
-* `/riptidetoggle` Permits you to enable/disable the riptide feature.
-* `/riptideforce <number>` Permits you to control the force of the custom riptide (be careful, it can be... really fast.)
-* `/unusedtoggle <entity name>` Permits you to enable or disable the natural spawn of three entities: `rabbit`, `zombiehorse`, `illusioner`.
-* `/unusedchance <entity name> <percentage>` Permits you to control the % of chance for the natural apparition of those entities.
+- **Bot Settings:**  
+  `bot.token`, `bot.username`, `bot.chat`
+- **Notification Toggles:**  
+  Enable/disable notifications for death, join, quit, chat, achievements, ragequit, shutdown, and more.
+- **Message Customization:**  
+  Edit messages for each event, including placeholders like `%msg%`, `%success%`, `%location%`.
+- **Delays:**  
+  Control spam with configurable delays for join, quit, and ragequit notifications.
+
+## 💬 Commands
+
+- `/notificator reload`  
+  Reloads the plugin configuration.
+- `/send <message>`  
+  Sends a custom message to your Telegram chat.
+
+## 🎉 Why Choose Telegram Notificator?
+
+- **Keep your community engaged** even when they’re not online.
+- **Celebrate victories, mock ragequits, and share server moments** instantly.
+- **Easy to set up, fun to use, and highly customizable.**
+
+---
+
+Ready to connect your Minecraft world to Telegram?  
+Try **Telegram Notificator** and make your server unforgettable!
