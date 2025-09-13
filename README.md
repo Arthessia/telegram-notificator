@@ -92,7 +92,7 @@ notif:
       - 🤹‍♂️🙄 `%msg% is juggling between dying and ragequitting.`
       - 🔮🤔 `%msg% didn’t ragequit. They’re just “predicting” a loss for later.`
       - 🍿😂🎬 `%msg% always puts on a good ragequit show, thanks for the entertainment.`
-      - 🥲🚪 `%msg% confused the “Quit” key with “Win.” (Spoiler: there’s no such key lol).`
+      - 🥲🚪 `%msg% confused the 'Quit' key with 'Win'. (Spoiler: there’s no such key lol).`
       - 🎮🕹️👾 `%msg% thinks quitting the game is an eSport skill.`
       - 🚫🏅 `%msg% wins the gold medal for the most pathetic ragequit.`
       - 🍺🍹🍷 `%msg%, maybe grab a drink to forget what just happened? I won’t tell the others.`
