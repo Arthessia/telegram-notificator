@@ -11,34 +11,34 @@ notif:
   delay: 15
   message:
     death: ☠️ `%msg%`
-    join: 💎⛏️ `%msg% vient de se connecter.`
-    quit: 🌒 `%msg% s'est déconnecté.`
-    success: 🏆 `%msg% a obtenu un succès %success%! GG!`
-    shutdown: ♻️🔋 `extinction du serveur.`
+    join: 💎⛏️ `%msg% just joined the game.`
+    quit: 🌒 `%msg% has left the game.`
+    success: 🏆 `%msg% just earned an achievement: %success%! GG!`
+    shutdown: ♻️🔋 `Server is shutting down.`
     rage:
-    - 🖥️👉🪟 `Je crois que %msg% vient de jeter son PC par la fenêtre, j'ai perdu la connexion.`
-    - 🍼👶 `%msg% a encore ragequit... quelqu’un lui passe une tétine ?`
-    - 🧂😤 `%msg% a des larmes plus salées que l’océan Atlantique.`
-    - 🪦💀 `%msg% est mort… encore. Mais cette fois il a ragequit avant le respawn.`
-    - 🎻😢 `%msg% mérite un petit violon pour son départ dramatique.`
-    - 🚪🏃 `%msg% a tenté de fuir ! Mais visiblement même ça c'est chaud...`
-    - 🧹🗑️ `%msg% a ragequit... On espère tous qu'il va pas glisser sur ses larmes et mourir une deuxième fois.`
-    - 🛑🤡 `%msg% pensait être un pro, mais la déconnexion était plus rapide que son skill.`
-    - 🐔🏳️ `%msg% a quitté comme une poule devant un renard.`
-    - 🥲💔 `%msg% a ragequit à %location%... si quelqu’un peut venir l’aider, il me fait presque de la peine.`
-    - 🏆🥈😂 `%msg% n’a pas perdu… il a juste ragequit en “grand champion” de la deuxième place.`
-    - 📉📉😂 `%msg% fait encore chuter la courbe de motivation de l’équipe.`
-    - 🧟🧠 `%msg% a utilisé 0% de son cerveau avant de ragequit.`
-    - 🎯🖱️❄️ `%msg% a visiblement enfin réussi a toucher son frigo avec sa souris.`
-    - 🦥💤 `%msg% a ragequit plus vite qu’il ne joue. Impressionnant.`
-    - 🤹‍♂️🙄 `%msg% jongle entre mourir et ragequit.`
-    - 🔮🤔 `%msg% n'a pas ragequit. Il “prévoit” juste de revenir perdre plus tard.`
-    - 🍿😂🎬 `%msg% offre toujours un bon spectacle de ragequit, merci pour le divertissement.`
-    - 🥲🚪 `%msg% a confondu la touche “Quitter” avec “Gagner” (Spoiler, elle existe pas la touche lool).`
-    - 🎮🕹️👾 `%msg% croit que couper le jeu est une compétence eSport.`
-    - 🚫🏅 `%msg% gagne la médaille d’or du ragequit le plus pathétique.`
-    - 🍺🍹🍷 `%msg%, et si t'allais boire un coup pour oublier ce qui vient de se passer ? Promis je dis rien aux autres.`
-    deathTime: ⏱️ `a vécu %msg%`
+      - 🖥️👉🪟 `I think %msg% just threw their PC out the window, I lost the connection.`
+      - 🍼👶 `%msg% ragequit again... someone hand them a pacifier?`
+      - 🧂😤 `%msg%’s tears are saltier than the Atlantic Ocean.`
+      - 🪦💀 `%msg% died… again. But this time they ragequit before respawning.`
+      - 🎻😢 `%msg% deserves a tiny violin for that dramatic exit.`
+      - 🚪🏃 `%msg% tried to run away! Turns out even that’s hard...`
+      - 🧹🗑️ `%msg% ragequit... Let’s hope they don’t slip on their tears and die a second time.`
+      - 🛑🤡 `%msg% thought they were a pro, but disconnecting was faster than their skills.`
+      - 🐔🏳️ `%msg% quit like a chicken in front of a fox.`
+      - 🥲💔 `%msg% ragequit at %location%... if anyone can go help them, I almost feel bad.`
+      - 🏆🥈😂 `%msg% didn’t lose… they just ragequit as the “grand champion” of second place.`
+      - 📉📉😂 `%msg% keeps tanking the team’s motivation chart.`
+      - 🧟🧠 `%msg% used 0% of their brain before ragequitting.`
+      - 🎯🖱️❄️ `%msg% finally managed to hit their fridge with the mouse.`
+      - 🦥💤 `%msg% ragequit faster than they play. Impressive.`
+      - 🤹‍♂️🙄 `%msg% is juggling between dying and ragequitting.`
+      - 🔮🤔 `%msg% didn’t ragequit. They’re just “predicting” a loss for later.`
+      - 🍿😂🎬 `%msg% always puts on a good ragequit show, thanks for the entertainment.`
+      - 🥲🚪 `%msg% confused the “Quit” key with “Win.” (Spoiler: there’s no such key lol).`
+      - 🎮🕹️👾 `%msg% thinks quitting the game is an eSport skill.`
+      - 🚫🏅 `%msg% wins the gold medal for the most pathetic ragequit.`
+      - 🍺🍹🍷 `%msg%, maybe grab a drink to forget what just happened? I won’t tell the others.`
+    deathTime: ⏱️ `survived for %msg%`
   join:
     enabled: true
   quit:
