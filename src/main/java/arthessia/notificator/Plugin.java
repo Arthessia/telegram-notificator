@@ -65,30 +65,30 @@ public class Plugin extends JavaPlugin implements Listener {
         }
         if (!this.getConfig().contains("notif.message.rage")) {
             List<String> init = new ArrayList<>();
-            init.add("🖥️👉🪟 `Je crois que %msg% vient de jeter son PC par la fenêtre, j'ai perdu la connexion.`");
-            init.add("🍼👶 `%msg% a encore ragequit... quelqu’un lui passe une tétine ?`");
-            init.add("🪦💀 `%msg% est mort… encore. Mais cette fois il a ragequit avant le respawn.`");
-            init.add("🦥💤 `%msg% a ragequit plus vite qu’il ne joue. Impressionnant.`");
-            init.add("🏆🥈 `%msg% n’a pas perdu… il a juste ragequit en “grand champion” de la deuxième place.`");
+            init.add("🖥️👉🪟 `I think %msg% just threw their PC out the window, I lost the connection.`");
+            init.add("🍼👶 `%msg% ragequit again... someone hand them a pacifier?`");
+            init.add("🪦💀 `%msg% died… again. But this time they ragequit before respawning.`");
+            init.add("🦥💤 `%msg% ragequit faster than they play. Impressive.`");
+            init.add("🏆🥈 `%msg% thought they were a pro, but disconnecting was faster than their skills.`");
             this.getConfig().set("notif.message.rage", init);
         }
         if (!this.getConfig().contains("notif.message.death")) {
             this.getConfig().set("notif.message.death", "☠️ `%msg%`");
         }
         if (!this.getConfig().contains("notif.message.deathTime")) {
-            this.getConfig().set("notif.message.deathTime", "`(⏱️ a vécu %msg%)`");
+            this.getConfig().set("notif.message.deathTime", "⏱️ `survived for %msg%`");
         }
         if (!this.getConfig().contains("notif.message.join")) {
-            this.getConfig().set("notif.message.join", "💎⛏️ `%msg% vient de se connecter.`");
+            this.getConfig().set("notif.message.join", "💎⛏️ `%msg% just joined the game.`");
         }
         if (!this.getConfig().contains("notif.message.quit")) {
-            this.getConfig().set("notif.message.quit", "🌒 `%msg% s'est déconnecté.`");
+            this.getConfig().set("notif.message.quit", "🌒 `%msg% has left the game.`");
         }
         if (!this.getConfig().contains("notif.message.shutdown")) {
-            this.getConfig().set("notif.message.shutdown", "⚡ `extinction du serveur.`");
+            this.getConfig().set("notif.message.shutdown", "♻️🔋 `Server is shutting down.`");
         }
         if (!this.getConfig().contains("notif.message.success")) {
-            this.getConfig().set("notif.message.success", "🏆 `%msg% a obtenu un succès %success%! GG!`");
+            this.getConfig().set("notif.message.success", "🏆 `%msg% just earned an achievement: %success%! GG!`");
         }
         if (!this.getConfig().contains("notif.bot.token")) {
             this.getConfig().set("notif.bot.token", "dummytoken");
