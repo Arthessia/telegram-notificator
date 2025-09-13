@@ -27,6 +27,8 @@ public class Plugin extends JavaPlugin implements Listener {
     public static final Random RANDOM = new Random();
     private static final HttpClient client = HttpClient.newHttpClient();
 
+    private TelegramBridgeBot telegramBot = null;
+
     @Override
     public void onEnable() {
         getLogger().info("Notificator loading...");
@@ -138,13 +140,26 @@ public class Plugin extends JavaPlugin implements Listener {
         long chatId = getConfig().getLong("bot.chatid", 0L);
 
         try {
+            telegramBot = new TelegramBridgeBot(this, chatId, token);
+            cleanConnections(telegramBot);
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            botsApi.registerBot(new TelegramBridgeBot(this, chatId, token));
+            botsApi.registerBot(telegramBot);
         } catch (TelegramApiException e) {
             getLogger().severe("Erreur lors du lancement du bot Telegram : " + e.getMessage());
         }
 
         getLogger().info("Notificator loaded...");
+    }
+
+    private void cleanConnections(TelegramBridgeBot bot) {
+        if (bot != null) {
+            try {
+                bot.onClosing();
+                getLogger().info("Previous connections to Telegram cleaned.");
+            } catch (Exception e) {
+                getLogger().warning("Cannot clean connections: " + e.getMessage());
+            }
+        }
     }
 
     @Override
@@ -168,6 +183,9 @@ public class Plugin extends JavaPlugin implements Listener {
             sendMessage(bot, chatId, customMessage, isSilent);
         }
         this.saveConfig();
+        if (telegramBot != null) {
+            telegramBot.onClosing();
+        }
         getLogger().info("Notificator shutdown...");
     }
 

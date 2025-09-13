@@ -20,6 +20,7 @@ public class TelegramBridgeBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
+        plugin.getLogger().info("message detected: " + update.getMessage().hasText());
         if (update == null || !update.hasMessage())
             return;
 
