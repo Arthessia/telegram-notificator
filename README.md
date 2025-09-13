@@ -1,6 +1,6 @@
 # Telegram Notificator
 
-Do you have a Telegram group and a private Minecraft server with your friends? This plugin is for you! By a troll, for trolls.
+Do you have a Telegram group and a private Minecraft server with your friends? This plugin is for you!
 
 Bring your Minecraft server to life with **Telegram Notificator** – the ultimate bridge between your in-game events and your Telegram community!
 
